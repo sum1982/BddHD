@@ -3,11 +3,11 @@ pipeline {
   stages {
     stage('Log Tool Version') {
       parallel {
-        stage('stepDefinition') {
+        stage('TestNG.xml') {
           steps {
-            sh '''java-version
-'''
-            fileExists 'stepDefiniton'
+            sh 'java'
+            fileExists 'mvn'
+            fileExists 'TestNG.xml'
           }
         }
 
