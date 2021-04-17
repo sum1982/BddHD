@@ -92,58 +92,7 @@ public class StepDef extends BaseClassHomeDepot{
 	
 	
 	
-	// LOGIN test case
 	
-	@Given("User launches the chrome browser and enters the URL www.homedepot.com")
-	public void user_launches_the_chrome_browser_and_enters_the_url_www_homedepot_com() throws IOException {
-	    lpo = new LoginPO(driver);
-	    
-	    driver.manage().window().maximize();
-	    //captureScreen(driver,"HomeDepot_HomePage");
-	    
-	}
-
-	@When("User clicks on the My Account link and selects SignIn")
-	public void user_clicks_on_the_my_account_link_and_selects_sign_in() throws InterruptedException {
-		
-		lpo.myaccountclick();
-		Thread.sleep(2000);
-		lpo.signinclick();
-		Thread.sleep(2000);
-		
-	}
-
-	@When("User enters {string} and user enters {string}")
-	public void user_enters_and_user_enters(String email, String pass) throws InterruptedException {
-	   
-		WebElement elem1,elem2;
-		elem1=lpo.enteremail();
-		elem1.sendKeys(email);
-		Thread.sleep(2000);
-		
-		elem2=lpo.enterpassword();	
-		elem2.sendKeys(pass);
-		Thread.sleep(2000);
-	}
-
-	@When("User clicks on the SignIn button")
-	public void user_clicks_on_the_sign_in_button() throws InterruptedException {
-	   
-		lpo.signinbutton();
-		System.out.println("I have found the button....");
-		Thread.sleep(4000);
-	}
-
-	@Then("Verification page opens with heading {string}")
-	public void verification_page_opens_with_heading(String string) {
-	    
-		WebElement q = driver.findElement(By.xpath("//*[@id=\"single-signin__body\"]/div/div[1]/div/div/p"));
-		String qs = q.getText();
-		System.out.println(qs);
-		
-		Assert.assertEquals(qs, string);
-		driver.quit();
-	}
 
 	//SEARCH AN ITEM test case
 	
